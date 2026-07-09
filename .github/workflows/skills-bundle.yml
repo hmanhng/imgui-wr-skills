@@ -1,0 +1,37 @@
+name: Bundle skills
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create tar.gz bundle (gzip)
+        run: |
+          # Pack heroes.json + manifest.json + all champion folders into a gzip tar.
+          # '*' bo qua dotfiles (.git, .github) va giu ten entry sach (khong co './').
+          rm -f skills.tar.gz
+          tar -czf skills.tar.gz --exclude=skills.tar.gz *
+          echo "== skills.tar.gz size =="
+          ls -la skills.tar.gz
+          echo "== first entries =="
+          tar -tzf skills.tar.gz | head -20
+          echo "== total entries =="
+          tar -tzf skills.tar.gz | wc -l
+
+      - name: Publish rolling release (tag skills-latest)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: skills-latest
+          name: Skills bundle
+          body: "Auto-bundled skills.tar.gz (heroes.json + champion icons). Rebuilt on every push to skills."
+          files: skills.tar.gz
