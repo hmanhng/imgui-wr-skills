@@ -85,7 +85,6 @@
   { "id": 10085, "name": "Aurora", "slug": "aurora" },
   { "id": 10086, "name": "Fizz", "slug": "fizz" },
   { "id": 10087, "name": "Ziggs", "slug": "ziggs" },
-  { "id": 10088, "name": "Cho'Gath", "slug": "cho-gath" },
   { "id": 10089, "name": "Gragas", "slug": "gragas" },
   { "id": 10090, "name": "Vladimir", "slug": "vladimir" },
   { "id": 10091, "name": "Nami", "slug": "nami" },
@@ -136,6 +135,7 @@
   { "id": 10141, "name": "Vex", "slug": "vex" },
   { "id": 10144, "name": "Viktor", "slug": "viktor" },
   { "id": 10146, "name": "Taliyah", "slug": "taliyah" },
+  { "id": 10148, "name": "Yunara", "slug": "yunara" },
   { "id": 10151, "name": "Nocturne", "slug": "nocturne" },
   { "id": 10152, "name": "K'Sante", "slug": "k-sante" },
   { "id": 10166, "name": "Norra", "slug": "norra" }
